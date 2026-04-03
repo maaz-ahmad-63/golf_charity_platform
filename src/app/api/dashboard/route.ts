@@ -62,7 +62,7 @@ export async function GET(request: NextRequest) {
       },
     ];
 
-    const totalWon = mockWinnings.reduce((sum, w) => sum + w.prize_amount, 0);
+    const totalWon = mockWinnings.reduce((sum: number, w: any) => sum + w.prize_amount, 0);
 
     return NextResponse.json({
       success: true,

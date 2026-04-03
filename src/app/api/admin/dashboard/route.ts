@@ -29,7 +29,7 @@ export async function GET(request: NextRequest) {
       .from('winners')
       .select('prize_amount');
 
-    const totalPool = winners?.reduce((sum, w) => sum + w.prize_amount, 0) || 0;
+    const totalPool = winners?.reduce((sum: number, w: any) => sum + w.prize_amount, 0) || 0;
 
     // Get charity contributions
     const { data: contributions } = await supabaseServer
