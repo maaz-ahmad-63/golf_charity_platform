@@ -39,7 +39,7 @@ export async function generateAlgorithmicNumbers(userId?: string): Promise<numbe
 
     // Calculate frequency of each score
     const scoreFrequency: Record<number, number> = {};
-    scores.forEach((entry) => {
+    scores.forEach((entry: any) => {
       scoreFrequency[entry.score] = (scoreFrequency[entry.score] || 0) + 1;
     });
 
@@ -112,7 +112,7 @@ export async function checkUserWinners(
 
     // Group scores by user (get last 5)
     const userScores: Record<string, number[]> = {};
-    allScores.forEach((entry) => {
+    allScores.forEach((entry: any) => {
       if (!userScores[entry.user_id]) {
         userScores[entry.user_id] = [];
       }
@@ -125,12 +125,12 @@ export async function checkUserWinners(
     const winners = [];
 
     for (const [userId, scores] of Object.entries(userScores)) {
-      const matches = scores.filter((score) => winningNumbers.includes(score)).length;
+      const matches = scores.filter((score: number) => winningNumbers.includes(score)).length;
 
       if (matches === 5) {
         const winnersCount = Object.entries(userScores).filter(
-          ([, userScores]) =>
-            userScores.filter((score) => winningNumbers.includes(score)).length === 5
+          ([, userScores]: any[]) =>
+            userScores.filter((score: number) => winningNumbers.includes(score)).length === 5
         ).length;
 
         winners.push({
@@ -141,8 +141,8 @@ export async function checkUserWinners(
         });
       } else if (matches === 4) {
         const winnersCount = Object.entries(userScores).filter(
-          ([, userScores]) =>
-            userScores.filter((score) => winningNumbers.includes(score)).length === 4
+          ([, userScores]: any[]) =>
+            userScores.filter((score: number) => winningNumbers.includes(score)).length === 4
         ).length;
 
         winners.push({
@@ -153,8 +153,8 @@ export async function checkUserWinners(
         });
       } else if (matches === 3) {
         const winnersCount = Object.entries(userScores).filter(
-          ([, userScores]) =>
-            userScores.filter((score) => winningNumbers.includes(score)).length === 3
+          ([, userScores]: any[]) =>
+            userScores.filter((score: number) => winningNumbers.includes(score)).length === 3
         ).length;
 
         winners.push({
@@ -235,7 +235,7 @@ export async function publishDrawResults(drawId: string) {
 
     // Insert winners
     if (winners.length > 0) {
-      const winnerRecords = winners.map((winner) => ({
+      const winnerRecords = winners.map((winner: any) => ({
         draw_id: drawId,
         user_id: winner.userId,
         match_type: winner.matchType,

@@ -36,7 +36,7 @@ export async function GET(request: NextRequest) {
       .from('charity_contributions')
       .select('amount');
 
-    const totalCharityRaised = contributions?.reduce((sum, c) => sum + c.amount, 0) || 0;
+    const totalCharityRaised = contributions?.reduce((sum: number, c: any) => sum + c.amount, 0) || 0;
 
     // Get recent winners
     const { data: recentWinners } = await supabaseServer

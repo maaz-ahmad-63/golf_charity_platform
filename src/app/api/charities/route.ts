@@ -69,7 +69,7 @@ export async function GET(request: NextRequest) {
     let charities = mockCharities;
 
     if (featured === 'true') {
-      charities = charities.filter((c) => c.featured);
+      charities = charities.filter((c: any) => c.featured);
     }
 
     return NextResponse.json({
