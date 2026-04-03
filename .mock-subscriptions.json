@@ -1,0 +1,26 @@
+{
+  "1775235628439-f967zuyg6": {
+    "id": "sub_1775235636233_nunfbb7j8",
+    "userId": "1775235628439-f967zuyg6",
+    "email": "maazbinayaz5555@gmail.com",
+    "plan": "monthly",
+    "amount": 29.99,
+    "charityId": "1",
+    "charityPercentage": 10,
+    "status": "active",
+    "createdAt": "2026-04-03T17:00:36.233Z",
+    "nextBillingDate": "2026-05-03T17:00:36.233Z"
+  },
+  "1775235868945-slbz0uda6": {
+    "id": "sub_1775235905533_2unqgtabc",
+    "userId": "1775235868945-slbz0uda6",
+    "email": "ehtashamul@gmail.com",
+    "plan": "monthly",
+    "amount": 29.99,
+    "charityId": "1",
+    "charityPercentage": 10,
+    "status": "active",
+    "createdAt": "2026-04-03T17:05:05.533Z",
+    "nextBillingDate": "2026-05-03T17:05:05.533Z"
+  }
+}
