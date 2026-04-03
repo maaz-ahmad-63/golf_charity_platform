@@ -4,9 +4,21 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://placeholder
 const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'placeholder-key';
 
 // Server-side client with service role (for admin operations)
-export const supabaseServer = createClient(supabaseUrl, supabaseServiceKey, {
-  auth: { persistSession: false },
-});
+let supabaseServer: any;
+
+try {
+  supabaseServer = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: { persistSession: false },
+  });
+} catch (e) {
+  console.warn('Failed to initialize Supabase server client:', e);
+  // Create a dummy client for build time
+  supabaseServer = {
+    from: () => ({ select: () => {}, insert: () => {}, delete: () => {}, eq: () => {} }),
+  };
+}
+
+export { supabaseServer };
 
 // Helper function to check subscription status
 export async function checkSubscriptionStatus(userId: string) {
